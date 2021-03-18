@@ -135,4 +135,3 @@ TEST_CASE("Edges test") {
     CHECK(BoardSeven.read(4294967288, 6, Direction::Vertical, 7) == string("______T"));
     // BoardSeven.show();
 }
-/* Add more test cases here */

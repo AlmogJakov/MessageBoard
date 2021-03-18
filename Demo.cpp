@@ -14,11 +14,6 @@ using ariel::Direction;
 using namespace std;
 
 int main() {
-	// ariel::Board board;
-	// board.post(/*row=*/100, /*column=*/200, Direction::Horizontal, "abcd");
-	// board.post(/*row=*/99, /*column=*/202, Direction::Vertical, "xyz");
-	// cout << board.read(/*row=*/100, /*column=*/200, Direction::Horizontal, /*length=*/4) << endl; 
-	// board.show();
 	ariel::Board board;
 	board.post(/*row=*/100, /*column=*/200, Direction::Horizontal, "abcd");
 	cout << board.read(/*row=*/99, /*column=*/201, Direction::Vertical, /*length=*/3) << endl;  
@@ -34,4 +29,3 @@ int main() {
 		//    101: ____z____
 		//    102: _________
 }
-

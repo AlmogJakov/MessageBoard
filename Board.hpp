@@ -6,8 +6,6 @@
 namespace ariel {
     class Board {
         std::vector<std::string> my_board{};
-        uint array_row_len = 0;
-        uint array_col_len = 0;
         bool empty_board = true;
         uint lowest_filled_col = 0;
         uint largest_filled_col = 0;

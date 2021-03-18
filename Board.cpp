@@ -106,14 +106,16 @@ namespace ariel {
         string result;
         if (direction == Direction::Vertical) {
             for (uint i = 0; i < length; i++) {
-                if ((row+i)>=lowest_filled_row&&(row+i)<=largest_filled_row) {
+                if ((row+i)>=lowest_filled_row&&(row+i)<=largest_filled_row
+                &&column>=lowest_filled_col&&column<=largest_filled_col) {
                         result+=my_board[row+i-row_space][column-col_space];
                     }
                 else {result.append("_");}
             }
         } else { /* horizontal direction */
             for (uint i = 0; i < length; i++) {
-                if ((column+i)>=lowest_filled_col&&(column+i)<=largest_filled_col) {
+                if ((column+i)>=lowest_filled_col&&(column+i)<=largest_filled_col
+                &&row>=lowest_filled_row&&row<=largest_filled_row) {
                     result+=my_board[row-row_space][column+i-col_space];
                     }
                 else {result.append("_");}

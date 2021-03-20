@@ -69,6 +69,14 @@ TEST_CASE("Board expand test") {
     // ExpandBoard.show();
 }
 
+TEST_CASE("Exceeding the size of the board") {
+    Board BoardCheck;
+    CHECK_THROWS(BoardCheck.post(4294967294, 4294967294, Direction::Horizontal, "TT"));
+    CHECK_THROWS(BoardCheck.post(4294967294, 4294967294, Direction::Vertical, "TT"));
+    CHECK_THROWS(BoardCheck.read(4294967294, 4294967294, Direction::Horizontal, 2));
+    CHECK_THROWS(BoardCheck.read(4294967294, 4294967294, Direction::Vertical, 2));
+}
+
 TEST_CASE("Edges test") {
     Board BoardFour;
     BoardFour.post(4294967294, 4294967294, Direction::Horizontal, "T");

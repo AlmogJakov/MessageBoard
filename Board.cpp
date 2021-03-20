@@ -4,6 +4,8 @@ using namespace std;
 #include <string>
 #include <vector>
 
+const uint uint_max_lentgh = 4294967295;
+
 namespace ariel {
     void Board::resize_board(uint row, uint column, uint max_row, uint max_column) {
         /*
@@ -83,8 +85,15 @@ namespace ariel {
         uint max_row = row;
         uint max_col = column;
         uint length = message.length();
-        if (direction == Direction::Vertical) {max_row = row + length - 1;}
-        else {max_col = column + length - 1;}
+        if (direction == Direction::Vertical) {
+            long check_length = (long)row + (long)length - 1;
+            if (check_length>=uint_max_lentgh) {throw invalid_argument("Exceeding the size of the board");}
+            max_row = row + length - 1;
+        } else {
+            long check_length = (long)column + (long)length - 1;
+            if (check_length>=uint_max_lentgh) {throw invalid_argument("Exceeding the size of the board");}
+            max_col = column + length - 1;
+        }
         /* resize the current board according to the new board measurement */
         resize_board(row, column, max_row, max_col);
         row_space = lowest_filled_row;
@@ -102,6 +111,13 @@ namespace ariel {
     }
 
     std::string Board::read(uint row, uint column, Direction direction, uint length) {
+        if (direction == Direction::Vertical) {
+            long check_length = (long)row + (long)length - 1;
+            if (check_length>=uint_max_lentgh) {throw invalid_argument("Exceeding the size of the board");}
+        } else {
+            long check_length = (long)column + (long)length - 1;
+            if (check_length>=uint_max_lentgh) {throw invalid_argument("Exceeding the size of the board");}
+        }
         /* build result string */
         string result;
         if (direction == Direction::Vertical) {

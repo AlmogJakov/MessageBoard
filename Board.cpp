@@ -1,7 +1,6 @@
 #include "Board.hpp"
 #include <iostream>
 using namespace std;
-#include <string>
 #include <vector>
 
 const uint uint_max_lentgh = 4294967295;

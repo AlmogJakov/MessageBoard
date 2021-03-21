@@ -11,8 +11,6 @@ namespace ariel {
         uint largest_filled_col = 0;
         uint lowest_filled_row = 0;
         uint largest_filled_row = 0;
-        uint row_space = 0;
-        uint col_space = 0;
         void resize_board(uint row, uint column, uint max_row, uint max_column);
     public:
         Board() { }

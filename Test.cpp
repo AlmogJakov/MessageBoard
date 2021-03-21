@@ -46,8 +46,8 @@ TEST_CASE("Overwrite test") {
 TEST_CASE("Board expand test") {
     Board ExpandBoard;
     ExpandBoard.post(100, 200, Direction::Horizontal, "abcd");
-    // ExpandBoard.show();
     ExpandBoard.post(85, 190, Direction::Horizontal, "abcd");
+    //ExpandBoard.show();
     CHECK(ExpandBoard.read(84, 190, Direction::Horizontal, 3) == string("___"));
     CHECK(ExpandBoard.read(84, 190, Direction::Vertical, 3) == string("_a_"));
     CHECK(ExpandBoard.read(84, 191, Direction::Horizontal, 3) == string("___"));
@@ -71,10 +71,17 @@ TEST_CASE("Board expand test") {
 
 TEST_CASE("Exceeding the size of the board") {
     Board BoardCheck;
+    //BoardCheck.post(0, 1, Direction::Horizontal, "T\nH");
+    //BoardCheck.show();
+    //CHECK(BoardCheck.read(0, 0, Direction::Horizontal, 5) == string("_T\nH_"));
     CHECK_THROWS(BoardCheck.post(4294967294, 4294967294, Direction::Horizontal, "TT"));
     CHECK_THROWS(BoardCheck.post(4294967294, 4294967294, Direction::Vertical, "TT"));
     CHECK_THROWS(BoardCheck.read(4294967294, 4294967294, Direction::Horizontal, 2));
     CHECK_THROWS(BoardCheck.read(4294967294, 4294967294, Direction::Vertical, 2));
+    CHECK_THROWS(BoardCheck.post(4294967295, 4294967295, Direction::Horizontal, "a"));
+    CHECK_THROWS(BoardCheck.post(4294967295, 4294967295, Direction::Vertical, "a"));
+    CHECK_THROWS(BoardCheck.read(4294967295, 4294967295, Direction::Horizontal, 1));
+    CHECK_THROWS(BoardCheck.read(4294967295, 4294967295, Direction::Vertical, 1));
 }
 
 TEST_CASE("Edges test") {
@@ -93,7 +100,7 @@ TEST_CASE("Edges test") {
     CHECK(BoardFour.read(4294967288, 4294967292, Direction::Vertical, 7) == string("____E__"));
     CHECK(BoardFour.read(4294967288, 4294967293, Direction::Vertical, 7) == string("_____C_"));
     CHECK(BoardFour.read(4294967288, 4294967294, Direction::Vertical, 7) == string("______T"));
-    // BoardFour.show();
+    BoardFour.show();
     Board BoardFive;
     BoardFive.post(6, 6, Direction::Horizontal, "T");
     BoardFive.post(5, 5, Direction::Horizontal, "C");

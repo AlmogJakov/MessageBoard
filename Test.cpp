@@ -100,7 +100,7 @@ TEST_CASE("Edges test") {
     CHECK(BoardFour.read(4294967288, 4294967292, Direction::Vertical, 7) == string("____E__"));
     CHECK(BoardFour.read(4294967288, 4294967293, Direction::Vertical, 7) == string("_____C_"));
     CHECK(BoardFour.read(4294967288, 4294967294, Direction::Vertical, 7) == string("______T"));
-    BoardFour.show();
+    // BoardFour.show();
     Board BoardFive;
     BoardFive.post(6, 6, Direction::Horizontal, "T");
     BoardFive.post(5, 5, Direction::Horizontal, "C");
